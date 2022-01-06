@@ -9,7 +9,7 @@ pipeline {
                
 
                sh 'echo "hello"'
-		sh 'ls'
+		
 
 
 
@@ -21,7 +21,7 @@ pipeline {
             stage("zipped"){
             	steps {
             sh '''
-            	apt  install jq -y
+            	ls
             	x=`jq .build_job_id build.json`
 		zip build_website_${x}.zip build.json hta.png main.html
 		ls 
