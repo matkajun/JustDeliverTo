@@ -15,11 +15,11 @@ AWS_DEFAULT_REGION = 'us-east-2'
             	steps {
                 checkout([$class: 'GitSCM', branches: [[name: '$branch_name']], extensions: [], userRemoteConfigs: [[credentialsId: '060ee98d-0ef5-4ef9-b81a-dc8cfd687575', url: 'git@github.com:matkajun/JustDeliverTo.git']]])
 
-            sh '''
-            	cd flask-app/
-            	x=`jq .build_job_id build.json`
+        sh '''
+            cd /home/ron981/Desktop/JustDeliverT/app/flask-app
+        x=`jq .build_job_id build.json`
 		zip -r build_website_${x}.zip build.json templates app.py 
-		'''
+		  '''
 
 
             }	
@@ -37,13 +37,13 @@ AWS_DEFAULT_REGION = 'us-east-2'
     ]]) {
 
     
-                    sh '''
-                    cd flask-app/
-                x=`jq .build_job_id build.json`
-                aws s3 cp build_website_${x}.zip s3://justdeliver/
+                sh '''
+                    cd /home/ron981/Desktop/JustDeliverT/app/flask-app
+                    x=`jq .build_job_id build.json`
+                    aws s3 cp build_website_${x}.zip s3://justdeliver/
                 
 
-                    '''
+                  '''
 
                 }
 

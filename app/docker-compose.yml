@@ -1,0 +1,20 @@
+#RonBs
+
+version: "3.3"
+services:
+  app:
+    build: ./flask-app
+    ports:
+      - "4001:4001"
+ 
+  ngnixg:
+    build: ./proxy
+    ports:
+      - "80:80" 
+   
+    volumes: 
+      -  "./nginx.conf:/etc/nginx/nginx.conf"
+      
+      
+
+    
