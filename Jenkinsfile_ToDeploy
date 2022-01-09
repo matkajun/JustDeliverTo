@@ -70,7 +70,7 @@ stage("Deploy"){
                 sleep 4
                 docker run -p 4001:4001 --name ${container_name} -d justdev
                 sleep 5
-                curl localhost:4001
+                xdg-open http://localhost:4001/
 
                 '''
 
