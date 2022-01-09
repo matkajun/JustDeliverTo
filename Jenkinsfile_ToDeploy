@@ -65,7 +65,7 @@ stage("Deploy"){
 
                 sh '''
                 cd app/
-                docker-compose up --build
+                sudo docker-compose up --build
                 
                 sleep 5
                 
