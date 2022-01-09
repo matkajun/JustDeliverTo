@@ -63,6 +63,8 @@ stage("Deploy"){
 
                     python3 --version
                     python3 web.py
+                    sleep 10
+                    curl 172.27.0.2:3008
                     '''
 
 
