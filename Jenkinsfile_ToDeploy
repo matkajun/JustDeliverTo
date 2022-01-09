@@ -44,31 +44,6 @@ AWS_DEFAULT_REGION = 'us-east-2'
             }	
             }
 
-stage("Deploy"){
-                steps{
-                script {
-
-
-
-
-
-                }
-
-
-
-                }
-                }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
