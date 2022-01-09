@@ -2,6 +2,7 @@ pipeline {
     agent any 
     parameters {
   string 'build_website_id'
+  container_name = 'justdev'
 }
 
   environment {
@@ -58,8 +59,17 @@ stage("Deploy"){
                 steps {
                 checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: '060ee98d-0ef5-4ef9-b81a-dc8cfd687575', url: 'git@github.com:matkajun/JustDeliverTo.git']]])
 
-                 sh "nohup python3 app.py"
-                 sh 'sleep 120'
+
+
+                sh '''
+                docker build -t ${container_name} .
+                sleep 3
+                docker run -p 4001:4001 --name ${container_name} -d justdev
+
+                '''
+
+                 
+                
 }
 
 
@@ -71,18 +81,6 @@ stage("Deploy"){
 
 
 
- post {
-        always {
-            echo 'The pipeline completed'
-            junit allowEmptyResults: true, testResults:'*/test_reports/.xml'
-        }
-        success {                   
-            echo "Flask Application Up and running!!"
-        }
-        failure {
-            echo 'Build stage failed'
-            error('Stopping early…')
-        }
-      }
+
         
         }
