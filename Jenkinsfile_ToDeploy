@@ -17,6 +17,14 @@ AWS_DEFAULT_REGION = 'us-east-2'
 
             stage("Package"){
             	steps {
+                   script {
+                        withCredentials([[
+                        $class: 'AmazonWebServicesCredentialsBinding', 
+                        accessKeyVariable: 'AWS_ACCESS_KEY_ID', 
+                        secretKeyVariable: 'AWS_SECRET_ACCESS_KEY',
+                        credentialsId: 'ron'
+                        ]]) {
+
                     checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: '060ee98d-0ef5-4ef9-b81a-dc8cfd687575', url: 'git@github.com:matkajun/JustDeliverTo.git']]])
 
             sh '''
@@ -35,3 +43,5 @@ AWS_DEFAULT_REGION = 'us-east-2'
         }
         }
 
+        }
+        }
