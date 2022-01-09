@@ -32,7 +32,7 @@ AWS_DEFAULT_REGION = 'us-east-2'
 
                 
                 
-                cd flask-app/
+                cd app/
                 aws s3 cp s3://justdeliver/build_website_${build_website_id}.zip .
                 echo '###############################################'
 
@@ -64,13 +64,11 @@ stage("Deploy"){
 
 
                 sh '''
-                cd flask-app/
-                docker build -t ${container_name} .
-                docker container rm -f ${container_name}
-                sleep 4
-                docker run -p 4001:4001 --name ${container_name} -d justdev
+                cd app/
+                docker-compose up --build
+                
                 sleep 5
-                xdg-open http://localhost:4001/
+                
 
                 '''
 
