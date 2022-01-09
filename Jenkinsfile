@@ -16,9 +16,9 @@ AWS_DEFAULT_REGION = 'us-east-2'
                 checkout([$class: 'GitSCM', branches: [[name: '$branch_name']], extensions: [], userRemoteConfigs: [[credentialsId: '060ee98d-0ef5-4ef9-b81a-dc8cfd687575', url: 'git@github.com:matkajun/JustDeliverTo.git']]])
 
         sh '''
-            cd app/flask-app/
+            cd app/
         x=`jq .build_job_id build.json`
-		zip -r build_website_${x}.zip build.json templates app.py 
+		zip -r build_website_${x}.zip docker-compose.yml flask-app nginx.conf proxy
 		  '''
 
 
