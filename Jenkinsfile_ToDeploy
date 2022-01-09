@@ -33,7 +33,7 @@ AWS_DEFAULT_REGION = 'us-east-2'
             	ls
                 
 
-                aws s3 cp s3://justdeliver/build_website_${build_website_id} .
+                aws s3 cp s3://justdeliver/build_website_${build_website_id}.zip .
                 ###############################################
                 ls
 		
