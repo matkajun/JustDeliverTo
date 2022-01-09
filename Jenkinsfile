@@ -42,8 +42,12 @@ AWS_DEFAULT_REGION = 'us-east-2'
             stage("Publish"){
                 steps{
 
-withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'awstry', usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY']]) {
-        AWS("--region=us-east-2 s3 ls")
+                    withCredentials([[
+                class: 'AmazonWebServicesCredentialsBinding',
+                credentialsId: ron,
+                accessKeyVariable: 'AWS_ACCESS_KEY',
+                secretKeyVariable: 'AWS_SECRET_KEY'
+            ]]){
     
                     sh '''
                 x=`jq .build_job_id build.json`
@@ -55,7 +59,6 @@ withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'awstry
 
             }
 
-            
+            }
         }
     }
-}
