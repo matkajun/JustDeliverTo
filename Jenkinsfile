@@ -18,7 +18,7 @@ AWS_DEFAULT_REGION = 'us-east-2'
             sh '''
             	ls
             	x=`jq .build_job_id build.json`
-		zip -r build_website_${x}.zip build.json templates web.py
+		zip -r build_website_${x}.zip build.json templates app.py
 		ls 
 		'''
 
