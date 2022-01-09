@@ -34,7 +34,6 @@ pipeline {
 
             stage("Publish"){
                 steps{
-                    withCredentials([<object of type com.cloudbees.jenkins.plugins.awscredentials.AmazonWebServicesCredentialsBinding>]) {
                     sh '''
                 x=`jq .build_job_id build.json`
                 aws s3 cp build_website_${x}.zip s3://justdeliver/
@@ -48,4 +47,3 @@ pipeline {
             
         }
     }
-}
