@@ -12,8 +12,8 @@ services:
     ports:
       - "80:80" 
    
-    volumes: 
-      -  "./conf/:/etc/nginx/"
+        #    volumes: 
+        #      -  "./conf/:/etc/nginx/"
       
   
 
