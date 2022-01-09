@@ -38,7 +38,7 @@ AWS_DEFAULT_REGION = 'us-east-2'
 
     
                     sh '''
-                    cd app/flask-app/
+                    cd app/
                 x=`jq .build_job_id build.json`
                 aws s3 cp build_website_${x}.zip s3://justdeliver/
                 
