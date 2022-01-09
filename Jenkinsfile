@@ -41,7 +41,7 @@ AWS_DEFAULT_REGION = 'us-east-2'
 
             stage("Publish"){
                 steps{
-
+                      script {
                     withCredentials([[
                 class: 'AmazonWebServicesCredentialsBinding',
                 credentialsId: ron,
@@ -56,7 +56,7 @@ AWS_DEFAULT_REGION = 'us-east-2'
                     '''
 
                 }
-
+}
             }
 
             }
