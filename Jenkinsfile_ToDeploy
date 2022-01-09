@@ -63,6 +63,7 @@ stage("Deploy"){
 
 
                 sh '''
+                cd flask-app/
                 docker build -t ${container_name} .
                 docker container rm -f ${container_name}
                 sleep 4
