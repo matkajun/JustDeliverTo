@@ -15,7 +15,7 @@ AWS_DEFAULT_REGION = 'us-east-2'
     stages { 
 
 
-            stage("Package"){
+            stage("Unzip"){
             	steps {
                    script {
                         withCredentials([[
@@ -29,12 +29,13 @@ AWS_DEFAULT_REGION = 'us-east-2'
 
             sh '''
 
-            ####################################
-            	ls
+            	
                 
 
                 aws s3 cp s3://justdeliver/build_website_${build_website_id}.zip .
-                ###############################################
+                echo '###############################################'
+                unzip -q build_website_${build_website_id}.zip
+                echo '#########################'
                 ls
 		
 		'''
