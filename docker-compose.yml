@@ -18,3 +18,4 @@ volumes:
   m2repo:
   jenkins_home:
   ssh:
+
