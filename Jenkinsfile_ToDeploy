@@ -44,14 +44,40 @@ AWS_DEFAULT_REGION = 'us-east-2'
             }	
             }
 
-            stage("Deploy"){
-                steps {
-                    sh '''
-
-                        
+stage("Deploy"){
+                steps{
 
 
-                    '''
+
+                }
+                }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                 }
 
@@ -64,7 +90,3 @@ AWS_DEFAULT_REGION = 'us-east-2'
 
 
 
-
-
-        }
-        }
