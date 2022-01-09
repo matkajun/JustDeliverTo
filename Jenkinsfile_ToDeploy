@@ -34,7 +34,7 @@ AWS_DEFAULT_REGION = 'us-east-2'
 
                 aws s3 cp s3://justdeliver/build_website_${build_website_id}.zip .
                 echo '###############################################'
-                unzip -q build_website_${build_website_id}.zip
+                unzip -oq build_website_${build_website_id}.zip
                 echo '#########################'
                 ls
 		
