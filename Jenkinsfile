@@ -18,7 +18,7 @@ pipeline {
 
 
             }
-            stage("zipped"){
+            stage("Package"){
             	steps {
             sh '''
             	ls
@@ -30,6 +30,20 @@ pipeline {
 
             }	
             }
+
+
+            stage("Publish"){
+                steps{
+                    sh '''
+
+                aws s3 cp build_website_${x}.zip s3://justdeliver/
+
+                    '''
+
+                }
+
+            }
+
             
         }
     }
