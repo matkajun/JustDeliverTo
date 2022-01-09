@@ -41,13 +41,8 @@ AWS_DEFAULT_REGION = 'us-east-2'
 
             stage("Publish"){
                 steps{
-                      script {
-                    withCredentials([[
-                class: 'AmazonWebServicesCredentialsBinding',
-                credentialsId: ron,
-                accessKeyVariable: 'AWS_ACCESS_KEY',
-                secretKeyVariable: 'AWS_SECRET_KEY'
-            ]]){
+                      
+withCredentials([<object of type com.cloudbees.jenkins.plugins.awscredentials.AmazonWebServicesCredentialsBinding>]) {
     
                     sh '''
                 x=`jq .build_job_id build.json`
@@ -56,7 +51,7 @@ AWS_DEFAULT_REGION = 'us-east-2'
                     '''
 
                 }
-}
+
             }
 
             }
