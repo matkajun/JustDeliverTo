@@ -21,9 +21,8 @@ AWS_DEFAULT_REGION = 'us-east-2'
 
             sh '''
             	ls
-            	x=`jq .build_job_id build.json`
-                echo ${build_website_id}
-		
+                echo build_website_${build_website_id}.zip
+
 		
 		'''
 
