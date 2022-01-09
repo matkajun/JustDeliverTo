@@ -64,8 +64,10 @@ stage("Deploy"){
 
                 sh '''
                 docker build -t ${container_name} .
-                sleep 3
+                docker container rm -f ${container_name}
+                sleep 4
                 docker run -p 4001:4001 --name ${container_name} -d justdev
+
 
                 '''
 
