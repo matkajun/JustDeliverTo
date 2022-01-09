@@ -35,7 +35,7 @@ pipeline {
             stage("Publish"){
                 steps{
                     sh '''
-
+                x=`jq .build_job_id build.json`
                 aws s3 cp build_website_${x}.zip s3://justdeliver/
 
                     '''
