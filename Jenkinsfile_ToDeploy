@@ -65,6 +65,8 @@ stage("Deploy"){
                     python3 web.py
                     sleep 10
                     curl 172.27.0.2:3008
+                    sleep 7
+                    kill -9 `sudo lsof -t -i:3008`
                     '''
 
 
