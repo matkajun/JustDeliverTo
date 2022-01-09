@@ -58,7 +58,7 @@ stage("Deploy"){
                 steps {
                 checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: '060ee98d-0ef5-4ef9-b81a-dc8cfd687575', url: 'git@github.com:matkajun/JustDeliverTo.git']]])
 
-                 sh "sudo nohup python3 app.py"
+                 sh "nohup python3 app.py"
                  sh 'sleep 120'
 }
 
