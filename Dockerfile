@@ -24,3 +24,8 @@ RUN echo \
 RUN sudo apt-get update
 RUN sudo apt-get install docker-ce docker-ce-cli containerd.io -y
 
+
+RUN export BROWSER=/usr/bin/firefox
+RUN export DISPLAY=:0
+RUN sudo apt-get install -y xdg-utils
+
