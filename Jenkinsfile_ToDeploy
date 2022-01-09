@@ -62,7 +62,7 @@ stage("Deploy"){
                     sh '''
 
                     
-                    python3 app.py 1>/dev/null 2>/dev/null &
+                    nohup python3 app.py > log.txt 2>&1 &
                     sleep 10
                     curl 192.168.1.78:3008
 
