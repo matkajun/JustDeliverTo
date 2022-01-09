@@ -2,11 +2,12 @@ pipeline {
     agent any 
     parameters {
   string 'build_website_id'
-  container_name = 'justdev'
 }
 
   environment {
 AWS_DEFAULT_REGION = 'us-east-2'
+  container_name = 'justdev'
+
 
 
   }
