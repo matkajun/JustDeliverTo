@@ -59,19 +59,32 @@ stage("Deploy"){
                 steps {
                 checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: '060ee98d-0ef5-4ef9-b81a-dc8cfd687575', url: 'git@github.com:matkajun/JustDeliverTo.git']]])
 
-                    sh '''
-
-                    
-                    nohup python3 app.py > log.txt 2>&1 &
-                    sleep 10
-                    curl 192.168.1.78:5000
-
-                    '''
+                 sh "sudo nohup python3 app.py > log.txt 2>&1 &"
+}
 
 
-}}
+
+}
             
         }
+
+
+
+
+ post {
+        always {
+            echo 'The pipeline completed'
+            junit allowEmptyResults: true, testResults:'**/test_reports/*.xml'
+        }
+        success {                   
+            echo "Flask Application Up and running!!"
+        }
+        failure {
+            echo 'Build stage failed'
+            error('Stopping early…')
+        }
+      }
+        
         }
 
 
