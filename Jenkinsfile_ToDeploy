@@ -15,7 +15,7 @@ AWS_DEFAULT_REGION = 'us-east-2'
     stages { 
 
 
-            stage("Unzip"){
+            stage("Publish"){
             	steps {
                    script {
                         withCredentials([[
@@ -44,10 +44,27 @@ AWS_DEFAULT_REGION = 'us-east-2'
             }	
             }
 
+            stage("Deploy"){
+                steps{
+                    sh '''
 
+                        python --version
+
+
+                    '''
+
+                }
+
+            }
             
         }
         }
+
+
+
+
+
+
 
         }
         }
