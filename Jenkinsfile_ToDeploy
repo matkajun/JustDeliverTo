@@ -69,7 +69,8 @@ stage("Deploy"){
                 docker container rm -f ${container_name}
                 sleep 4
                 docker run -p 4001:4001 --name ${container_name} -d justdev
-
+                sleep 5
+                curl localhost:4001
 
                 '''
 
