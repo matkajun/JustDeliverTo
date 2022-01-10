@@ -41,4 +41,8 @@ http://localhost:8080/
 User: admim
 password: 12345678
 
-
+שלבים. 
+1. להרים את השרת של הג'נקניס: docker-compse up --buld מהתיקיה הראשית(JustDeliverT)
+2. להריץ build ל-build_website 
+3. להריץ build ל-deploy_website, והאתר באוויר
+4. נכנסים https://localhost:443
